@@ -1,0 +1,26 @@
+{
+  "name": "spanishpro-sayitright",
+  "version": "1.0.0",
+  "description": "Beginner-friendly Spanish pronunciation API. Part of the SpanishPro PowerTools suite.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "keywords": [
+    "Spanish",
+    "Pronunciation",
+    "Language Learning",
+    "API",
+    "GPT",
+    "Bookmarklet",
+    "SpanishPro"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "openai": "^4.26.0"
+  }
+}
