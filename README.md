@@ -198,16 +198,17 @@ javascript:(async function() {
   if (!text) return alert("⚠️ Please highlight a Spanish word or sentence.");
 
   const viewerUrl = "https://better-analyzer-viewer.onrender.com/say-it-right-viewer.html";
-
   const popup = window.open("", "_blank", "width=800,height=1000,resizable=yes,scrollbars=yes");
+
   popup.document.write(`
     <style>
       body { font-family: sans-serif; padding: 20px; background: #fefefe; color: #222; }
       h2 { font-size: 1.5em; margin-bottom: 10px; }
       p { font-size: 1em; color: #555; }
     </style>
-    <h2>⏳ Analyzing pronunciation...</h2>
-    <p>Please wait while we process your selection.</p>
+    <h2>⏳ Getting things ready...</h2>
+    <p>✨ Your custom pronunciation guide is on the way. Learning a new language takes patience and courage — you're doing great! 💬</p>
+    <p>Hang tight — SpanishPro is almost ready! 🚀</p>
   `);
 
   try {
@@ -224,3 +225,4 @@ javascript:(async function() {
     popup.document.body.innerHTML = "<h2>❌ Error</h2><pre>" + err.message + "</pre>";
   }
 })();
+
