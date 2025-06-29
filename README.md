@@ -197,22 +197,30 @@ javascript:(async function() {
   const text = window.getSelection().toString().trim();
   if (!text) return alert("⚠️ Please highlight a Spanish word or sentence.");
 
-  const response = await fetch("[https://your-api-url.onrender.com/pronounce](https://spanishpro-sayitright.onrender.com)", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ text })
-  });
-
-  const data = await response.json();
+  const viewerUrl = "https://better-analyzer-viewer.onrender.com/say-it-right-viewer.html";
 
   const popup = window.open("", "_blank", "width=800,height=1000,resizable=yes,scrollbars=yes");
   popup.document.write(`
     <style>
-      body { font-family: sans-serif; padding: 20px; background: #fff; color: #222; line-height: 1.5; }
+      body { font-family: sans-serif; padding: 20px; background: #fefefe; color: #222; }
       h2 { font-size: 1.5em; margin-bottom: 10px; }
-      .section { margin-top: 20px; }
+      p { font-size: 1em; color: #555; }
     </style>
-    <h2>🗣️ Spanish Pronunciation Guide</h2>
-    <div class="section">${data.result.replace(/\n/g, "<br>")}</div>
+    <h2>⏳ Analyzing pronunciation...</h2>
+    <p>Please wait while we process your selection.</p>
   `);
+
+  try {
+    const response = await fetch("https://spanishpro-sayitright.onrender.com/pronounce", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ text })
+    });
+
+    const result = await response.json();
+    const fullUrl = viewerUrl + "?text=" + encodeURIComponent(result.result);
+    popup.location.href = fullUrl;
+  } catch (err) {
+    popup.document.body.innerHTML = "<h2>❌ Error</h2><pre>" + err.message + "</pre>";
+  }
 })();
