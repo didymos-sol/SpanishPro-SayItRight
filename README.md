@@ -9,7 +9,7 @@ Developed by Kyle Harris
 
 **SayItRight** is an AI-powered Spanish pronunciation coach designed to help absolute beginners — especially learners who benefit from accessible, confidence-boosting instruction, such as learners with mild dyslexia — pronounce Spanish words and sentences clearly and confidently. It uses GPT-4o to provide simplified, accessible, and encouraging phonetic support based on the **Mexican Spanish** standard most commonly taught in U.S. classrooms.
 
-This tool is part of the SpanishPro PowerTools suite, a collection of AI-enhanced utilities developed by Kyle Harris to support joyful, accessible Spanish learning for all.
+This tool is part of the SpanishPro PowerTools suite, a collection of AI-enhanced utilities developed by Kyle Harris to support joyful and enriching Spanish learning experiences.
 
 ---
 
