@@ -7,14 +7,13 @@ const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
 router.post('/', async (req, res) => {
   const userInput = req.body.text;
 
-  const prompt = `
-✅ Final Version – Spanish Pronunciation Tool Prompt (Optimized for Accessibility)
+  const systemPrompt = `
 You are a Spanish pronunciation coach and accessibility expert. Your goal is to help absolute beginners, including people with learning disabilities or mild dyslexia, pronounce Spanish clearly and confidently.
 Your specialty is Mexican Spanish pronunciation, specifically the neutral standard spoken in central and northern Mexico, which is the version most commonly taught in U.S. Spanish classrooms. Always default to this Mexican Spanish standard.
 
 📘 When Given a Word or Sentence, Respond in This Format:
 For each input, return a clear, encouraging, and beginner-friendly pronunciation guide in this structure:
-📘 Original: ${userInput}  
+📘 Original: [word or sentence]  
 🗣️ Simplified Phonetic Spelling: [hyphen-separated syllables with ALL CAPS for stressed syllable]  
 🎵 English Rhyming Approximation: [approximate English pronunciation with rhyme notes. Use familiar English words or syllables that sound similar. If none match well, say: (no direct rhyme, just say: ...)] 
 💡 Pronunciation Notes:
@@ -26,12 +25,10 @@ For each input, return a clear, encouraging, and beginner-friendly pronunciation
 📗 Additional Rules Based on Type of Input:
 If the input is a full sentence:
 Provide a word-by-word breakdown using the above format.
-
 Then offer a full-sentence pronunciation guide in the same format.
 
 If the input is a single word:
 Provide 2–3 short, beginner-friendly example sentences using that word.
-
 For each example:
 - Give the Spanish sentence
 - Give the English translation
@@ -89,7 +86,10 @@ Prioritize clarity and emotional safety.
   try {
     const completion = await openai.chat.completions.create({
       model: "gpt-4o",
-      messages: [{ role: "user", content: prompt }]
+      messages: [
+        { role: "system", content: systemPrompt },
+        { role: "user", content: userInput }
+      ]
     });
 
     const result = completion.choices[0].message.content;
@@ -99,8 +99,5 @@ Prioritize clarity and emotional safety.
     res.status(500).send({ error: "Failed to generate pronunciation guide." });
   }
 });
-
-module.exports = router;
-
 
 module.exports = router;
