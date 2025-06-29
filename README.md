@@ -71,7 +71,7 @@ javascript:(async function() {
   const text = window.getSelection().toString().trim();
   if (!text) return alert("⚠️ Please highlight a Spanish word or sentence.");
 
-  const response = await fetch("https://your-api-url.onrender.com/pronounce", {
+  const response = await fetch("[https://your-api-url.onrender.com/pronounce](https://spanishpro-sayitright.onrender.com)", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ text })
