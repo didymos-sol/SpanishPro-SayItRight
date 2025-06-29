@@ -63,6 +63,11 @@ Submits a Spanish sentence or word for pronunciation breakdown.
 
 ```
 
+# CHANGE LOG + UPDATES
+
+## CORS Fix for SayItRight API
+CORS is enabled to allow use of the bookmarklet across all sites.
+
 # JavaScript Code (Copy This!)
 
 ```
