@@ -54,6 +54,10 @@ You can use SayItRight on any webpage by creating a browswer bookmarklet that se
 - If nothing happens, double-check that you've highlighted text first - either a word or short sentence.
 - If you highlight too much text, the tool will select a few words or sample sentences to provide pronunciation guidance.
 
+---
+## Preview Image ##
+
+![Alt text](SayItRightPreview.png)
 
 ---
 
